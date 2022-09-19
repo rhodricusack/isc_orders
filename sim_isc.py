@@ -15,7 +15,7 @@ nsim = 200
 
 amp_sig = 0
 amp_noise_mean = 2
-amp_noise_std = 1
+amp_noise_std = 0
 
 
 # Noise
@@ -37,21 +37,9 @@ for simind in range(nsim):
         plt.savefig('exampleisc.jpg')
     
     observed, ci, p, distribution = bootstrap_isc(simisc, pairwise=True, n_bootstraps=200 )
-    # # Get p-value for actual median from *NOT* shifted distribution
-    # shifted = distribution - observed
-    # p = p_from_null(observed, shifted,
-    #                 side='right', exact=True,
-    #                 axis=0)
-
     allp_sw.extend( p)
 
     observed, ci, p, distribution = bootstrap_isc(simisc, pairwise=False, n_bootstraps=200)
-    # # Get p-value for actual median from *NOT* shifted distribution
-    # shifted = distribution - observed
-    # p = p_from_null(observed, shifted,
-    #                 side='right', exact=True,
-    #                 axis=0)
-
     allp_ew.extend( p)
 
 fig, ax = plt.subplots(nrows=2)
