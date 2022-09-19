@@ -1,7 +1,5 @@
 from brainiak.isc import isc, bootstrap_isc
 import numpy as np
-from matplotlib import pyplot as plt
-from scipy.spatial.distance import squareform
 from brainiak.utils.utils import (array_correlation,
                                   phase_randomize,
                                   p_from_null,
