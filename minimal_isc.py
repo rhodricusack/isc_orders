@@ -37,5 +37,3 @@ for simind in range(nsim):
 print(f'SW false positive rate (alpha={alpha}) {np.mean(np.array(allp_sw)<alpha)}')
 print(f'EW false positive rate (alpha={alpha}) {np.mean(np.array(allp_ew)<alpha)}')
 
-# print(allp)
-a = 1
