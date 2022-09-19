@@ -16,9 +16,7 @@ nvox = 10 # number of voxels
 alpha = 0.05    # expected false positive level
 
 allp_sw = []  # subject-wise
-allci_sw = []
 allp_ew = []  # element-wise
-allci_ew = []
 
 for simind in range(nsim):
     y = np.random.randn(ntp, nvox, nsubj)  # no signal, just null distribution
@@ -26,12 +24,12 @@ for simind in range(nsim):
 
     # subject-wise
     observed, ci, p, distribution = bootstrap_isc(
-        simisc, pairwise=True, n_bootstraps=200)
+        simisc, pairwise=True, n_bootstraps=1000)
     allp_sw.extend(p)
 
     # element-wise
     observed, ci, p, distribution = bootstrap_isc(
-        simisc, pairwise=False, n_bootstraps=200)
+        simisc, pairwise=False, n_bootstraps=1000)   
     allp_ew.extend(p)
 
 print(f'SW false positive rate (alpha={alpha}) {np.mean(np.array(allp_sw)<alpha)}')
