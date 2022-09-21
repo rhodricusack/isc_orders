@@ -13,7 +13,7 @@ import scipy
 
 ntp=200
 nsubj=20
-nsim = 10
+nsim = 100
 norder = 6  # normally the voxels dimension, here I'm using it for our different orders
 
 amp_noise_mean = 2
@@ -31,7 +31,7 @@ allp_ew=[]
 
 df=pd.DataFrame()
 
-for amp_sig in np.arange(0,1,0.2):
+for amp_sig in np.arange(0,1,0.1):
         
     for simind in range(nsim):
         y=np.zeros((ntp, norder, nsubj)) 
