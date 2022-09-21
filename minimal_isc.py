@@ -9,7 +9,7 @@ import scipy
 
 ntp = 200   # number of timepoints
 nsubj = 20  # number of subjects
-nsim = 200  # number of simulations
+nsim = 50  # number of simulations
 nvox = 10 # number of voxels
 alpha = 0.05    # expected false positive level
 
@@ -22,12 +22,12 @@ for simind in range(nsim):
 
     # subject-wise
     observed, ci, p, distribution = bootstrap_isc(
-        simisc, pairwise=True, n_bootstraps=1000)
+        simisc, pairwise=True, n_bootstraps=200)
     allp_sw.extend(p)
 
     # element-wise
     observed, ci, p, distribution = bootstrap_isc(
-        simisc, pairwise=False, n_bootstraps=1000)   
+        simisc, pairwise=False, n_bootstraps=200)   
     allp_ew.extend(p)
 
 print(f'SW false positive rate (alpha={alpha}) {np.mean(np.array(allp_sw)<alpha)}')
